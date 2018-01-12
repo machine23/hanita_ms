@@ -88,8 +88,6 @@ class MsHistProtocol(asyncio.Protocol):
 def main():
     print("Start at {}:{}".format(HOST, PORT))
 
-    stor = Storage()
-
     loop = asyncio.get_event_loop()
     coro = loop.create_server(MsHistProtocol, HOST, PORT)
     server = loop.run_until_complete(coro)
@@ -100,7 +98,6 @@ def main():
         print("\nQuiting...")
 
     server.close()
-    stor.close()
     loop.run_until_complete(server.wait_closed())
     loop.close()
 
