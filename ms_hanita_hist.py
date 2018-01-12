@@ -68,7 +68,6 @@ class MsHistProtocol(asyncio.Protocol):
         print(*[key + ": " + str(msg[key]) for key in msg])
 
     def connection_made(self, transport):
-        print("connection")
         self.transport = transport
 
     def data_received(self, data):
